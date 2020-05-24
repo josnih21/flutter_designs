@@ -12,7 +12,8 @@ class BasicPage extends StatelessWidget {
             children: <Widget>[
             Container(
               width: double.infinity,
-              child: Image(
+              child: FadeInImage(
+                  placeholder: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'),
                   height: 200.0,
                   fit: BoxFit.cover,
                   image: NetworkImage('https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&w=1000&q=80')
