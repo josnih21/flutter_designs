@@ -44,12 +44,12 @@ class BasicPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'Milky Way',
+                    'The Milky Way',
                     style: estiloTitulo,
                   ),
                   SizedBox(height: 7.0),
                   Text(
-                    'A photo of milky way',
+                    'A photo of the milky way',
                     style: estiloSubtitulo,
                   )
                 ],
@@ -90,7 +90,7 @@ class BasicPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 40.0),
         child: Text(
         'Pues nada tío esto es una app de prueba que estoy haciendo para aprender un poquito de flutter que esta bastante guapo y eso'
-        'que no te doy mas la vara mi colega, yo estoy aprendiendo bastante de esta tecnología que da una posibilidad increible para desarrollar apps',
+        ' que no te doy mas la vara mi colega, yo estoy aprendiendo bastante de esta tecnología que da una posibilidad increible para desarrollar apps',
         textAlign: TextAlign.justify
         ),
         

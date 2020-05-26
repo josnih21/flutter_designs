@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -93,6 +94,10 @@ class ButtonssPage extends StatelessWidget {
         )
       ),
       child: BottomNavigationBar(
+        onTap: (i){
+          if(i == 1)
+          Navigator.pushNamed(context, 'scroll');
+        },
         items: [
           BottomNavigationBarItem(
             icon: Icon(
@@ -120,50 +125,55 @@ class ButtonssPage extends StatelessWidget {
       children: [
         TableRow(
           children: [
-            _createRoundedButton(),
-            _createRoundedButton(),
+            _createRoundedButton(Colors.orangeAccent,Icons.drafts,'Messages'),
+            _createRoundedButton(Colors.yellow,Icons.equalizer,'Stats'),
           ] 
         ),
         TableRow(
           children: [
-            _createRoundedButton(),
-            _createRoundedButton(),
+            _createRoundedButton(Colors.blue, Icons.border_all,'General'),
+            _createRoundedButton(Colors.purpleAccent,Icons.directions_bus,'Bus')
           ] 
         ),
         TableRow(
           children: [
-            _createRoundedButton(),
-            _createRoundedButton(),
+            _createRoundedButton(Colors.redAccent,Icons.event_note,'Events'),
+            _createRoundedButton(Colors.deepOrangeAccent,Icons.favorite,'Health'),
           ] 
         ),
         TableRow(
           children: [
-            _createRoundedButton(),
-            _createRoundedButton(),
+            _createRoundedButton(Colors.deepPurpleAccent,Icons.fiber_pin,'Pin data'),
+            _createRoundedButton(Colors.lightGreenAccent,Icons.filter_center_focus,'Scan code'),
           ] 
         ),
       ],
     );
   }
 
- Widget _createRoundedButton() {
-   return Container(
-     height: 160.0,
-     margin: EdgeInsets.all(15.0),
-     decoration: BoxDecoration(
-       color: Color.fromRGBO(62, 66, 107, 0.7),
-       borderRadius: BorderRadius.circular(20.0),
-     ),
-     child: Column(
-       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-       children: <Widget>[
-         CircleAvatar(
-           backgroundColor: Colors.pinkAccent,
-           radius: 30.0,
-           child: Icon(Icons.record_voice_over,color:Colors.white,size:30.0),
+ Widget _createRoundedButton(Color color, IconData icon,String texto) {
+   return ClipRect(
+     child: BackdropFilter(
+       filter: ImageFilter.blur(sigmaX:10.0,sigmaY:10.0),
+       child: Container(
+         height: 160.0,
+         margin: EdgeInsets.all(15.0),
+         decoration: BoxDecoration(
+           color: Color.fromRGBO(62, 66, 107, 0.7),
+           borderRadius: BorderRadius.circular(20.0),
          ),
-         Text('Cosa',style: TextStyle(color:Colors.pinkAccent))
-       ],
+         child: Column(
+           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+           children: <Widget>[
+             CircleAvatar(
+               backgroundColor: color,
+               radius: 30.0,
+               child: Icon(icon,color:Colors.white,size:30.0),
+             ),
+             Text(texto,style: TextStyle(color: color))
+           ],
+         ),
+       ),
      ),
    );
  }

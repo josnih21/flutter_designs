@@ -9,7 +9,7 @@ class ScrollPage extends StatelessWidget {
         scrollDirection: Axis.vertical,
         children: <Widget>[
           _pageOne(),
-          _pageTwo(),
+          _pageTwo(context),
         ],
 
 
@@ -28,14 +28,16 @@ class ScrollPage extends StatelessWidget {
    );
  }
 
- Widget _pageTwo() {
+ Widget _pageTwo(BuildContext context) {
    return Container(
      width: double.infinity,
      height: double.infinity,
      color: Color.fromRGBO(108, 192, 218, 1.0),
      child: Center(
             child: RaisedButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.pushNamed(context, 'basic');
+              },
               color: Colors.blue,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
               child: Padding(
@@ -74,8 +76,8 @@ class ScrollPage extends StatelessWidget {
      child: Column(
        children: <Widget>[
          SizedBox(height:20.0),
-         Text('11º',style: textStyle),
-         Text('Domingo',style: textStyle),
+         Text('26°',style: textStyle),
+         Text('Martes',style: textStyle),
          Expanded(child: Container()),
          Icon(Icons.keyboard_arrow_down,size: 70.0,color: Colors.white,)
        ],
